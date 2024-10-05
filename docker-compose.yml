@@ -21,7 +21,6 @@ services:
       - "3000:3000"
     depends_on:
       - db
-      - ocr_service
     environment:
       DATABASE_HOST: ${DATABASE_HOST}
       DATABASE_USERNAME: ${DATABASE_USERNAME}
@@ -29,14 +28,6 @@ services:
       DATABASE_NAME: ${DATABASE_NAME}
       DATABASE_PORT: ${DATABASE_PORT}
       SERVICE_URL: ${SERVICE_URL}
-
-  ocr_service:
-    build:
-      context: ./lib/ocr
-    volumes:
-      - ./lib/ocr:/app
-    ports:
-      - "5001:5001"
 
 volumes:
   db_data:
